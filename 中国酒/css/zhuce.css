@@ -25,16 +25,21 @@ html, body {
   color: #1f1f1f;
 }
 
+#header p {
+  float: right;
+  font: 24px/36px "";
+}
+
 #nav {
   background: #e33938;
-  height: 69.4%;
+  height: 74.4%;
 }
 
 #nav .right {
   width: 1000px;
-  height: 430px;
+  height: 500px;
   background: #fff;
-  float: right;
+  float: left;
   margin-top: 35px;
 }
 
@@ -46,7 +51,7 @@ html, body {
 #nav .right .dlu p {
   font: 700 18px/55px "";
   color: #e54b54;
-  text-indent: 2em;
+  text-indent: 100px;
 }
 
 #nav .right .ipt {
@@ -56,6 +61,7 @@ html, body {
   margin: 26px 0 0 30px;
   border-radius: 5px;
   overflow: hidden;
+  margin-left: 100px;
 }
 
 #nav .right .ipt .img {
@@ -71,7 +77,31 @@ html, body {
   display: block;
 }
 
-#nav .right .ipt #btn {
+#nav .right .ipt #btn1 {
+  height: 40px;
+  border: none;
+  float: left;
+  width: 238px;
+  text-indent: 1em;
+}
+
+#nav .right .ipt #btn2 {
+  height: 40px;
+  border: none;
+  float: left;
+  width: 238px;
+  text-indent: 1em;
+}
+
+#nav .right .ipt #btn3 {
+  height: 40px;
+  border: none;
+  float: left;
+  width: 238px;
+  text-indent: 1em;
+}
+
+#nav .right .ipt #btn4 {
   height: 40px;
   border: none;
   float: left;
@@ -85,6 +115,7 @@ html, body {
   border-radius: 4px;
   overflow: hidden;
   margin: 26px 0 0 30px;
+  margin-left: 100px;
 }
 
 #nav .right .sub #but {
@@ -98,7 +129,7 @@ html, body {
 
 #footer {
   background: #f2f2f2;
-  height: 20.4%;
+  height: 15.4%;
 }
 
 #footer span {

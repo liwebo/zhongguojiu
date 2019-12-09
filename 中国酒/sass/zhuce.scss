@@ -6,29 +6,31 @@ html,body{height:100%;}
 #header{background:#f2f2f2;height:9.2%;
     img{height:40px;display: block;float: left;margin-top:20px;padding-right:10px;}
     span{font:16px/80px "";color:#1f1f1f;}
+    p{float:right;font:24px/36px "";}
 }
 
-#nav{background:#e33938;height:69.4%;
+#nav{background:#e33938;height:74.4%;
         
-        .right{width:1000px;height:430px;background:#fff;float:right;margin-top:35px;
+        .right{width:1000px;height:500px;background:#fff;float:left;margin-top:35px;
             .dlu{height:55px;border-bottom:1px solid #f2f2f2;
-                p{font: 700 18px/55px "";color:#e54b54;text-indent:2em;}
+                p{font: 700 18px/55px "";color:#e54b54;text-indent:100px;}
             }
             .ipt{width:280px;height:40px;border:1px solid #f2f2f2;margin:26px 0 0 30px;border-radius:5px;overflow: hidden;
+                margin-left:100px;
                 .img{background:#f2f2f2;height:40px;width:40px;float: left;border-right:2px solid #f2f2f2;
                     img{margin:5px auto;display: block;}
                 }
-                #btn{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #btn1{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #btn2{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #btn3{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #btn4{height:40px;border:none;float: left;width:238px;text-indent:1em;}
             }
-            .sub{width:280px;height:40px;border-radius:4px;overflow: hidden;margin:26px 0 0 30px;
+            .sub{width:280px;height:40px;border-radius:4px;overflow: hidden;margin:26px 0 0 30px;margin-left:100px;
                 #but{width:280px;height:40px;border:none;background:#f23331;color:#fff;font-size:16px;}
-            }
-          
-            
-            
+            }       
         }
 }
 
-#footer{background:#f2f2f2;height: 20.4%;
+#footer{background:#f2f2f2;height: 15.4%;
     span{text-align: center;padding-top:30px;display:block;}
 }
