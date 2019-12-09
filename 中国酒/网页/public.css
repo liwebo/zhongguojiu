@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* {margin:0;padding:0;}去除空隙 */
+
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,dl,dd,fieldset,legend,input,textarea,select,figure
+{margin:0;padding:0;}
+
+.margin{width:1140px;margin:0 auto;}
+
+body{font:12px  "微软雅黑"; word-wrap:break-word;}/*word-wrap:break-word;文字 字母 自动换行*/
+
+a,u,s,del{color:#666;text-decoration:none}/*去除文本修饰属性*/
+
+fieldset ,a img,.bor0 {border:0;}/*边框为0 IE设置 去除边框*/
+
+/* a{text-decoration:none;}去除下划线 */
+
+i,em,b{font-style:normal;font-weight:100;}/*去除加粗和倾斜*/
+
+li{list-style:none;}/*去除列表符号*/
+
+img{vertical-align:middle;}/* img{vertical-align:block;} */ /*去除图片空隙*/
+
+/* table{border-spacing:0;} 单元格边框为0*/
+table{border-collapse:collapse;}/*合并相邻边框（细线边框）*/
+
+.ind2{text-indent:2em;}/*首行缩进*/
+
+textarea{resize: none;}/*禁止放大缩小多行文本框*/
+
+.over{white-space:nowrap;/*文本强制不换行*/overflow:hidden;text-overflow:ellipsis;}/*文本溢出出现省略号*/
+
+/*图片垂直对齐的三种方法*/
+.valign{text-align:center;}
+.valign img{vertical-align:middle;}
+.valign:after{content:"";vertical-align:middle;height:100%;display:inline-block;}
+
+.clear:before{content:"";display:table;}/*解决margin-top传递问题*/
+.clear:after{content:"";clear:both;display:block;}/*清除浮动*/
+
+
+
+
+

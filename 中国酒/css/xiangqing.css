@@ -1,0 +1,336 @@
+.margin {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+#header {
+  background: #f5f4f4;
+  height: 30px;
+  border-bottom: solid 1px #e6e6e6;
+}
+
+#header .tou {
+  line-height: 30px;
+}
+
+#header .tou .left li {
+  float: left;
+  padding: 0 5px;
+}
+
+#header .tou .right li {
+  float: right;
+  padding: 0 5px;
+}
+
+#section {
+  background: #fff;
+  height: 120px;
+}
+
+#section .logo {
+  float: left;
+  margin-top: 30px;
+}
+
+#section .center {
+  margin-left: 160px;
+  float: left;
+  margin-top: 30px;
+}
+
+#section .center .ipt {
+  width: 590px;
+  height: 40px;
+  border: 2px solid #dd0207;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+#section .center .ipt ul {
+  float: left;
+}
+
+#section .center .ipt ul li {
+  float: left;
+  line-height: 40px;
+  width: 55px;
+}
+
+#section .center .ipt #ipt1 {
+  width: 460px;
+  height: 40px;
+  border: none;
+  float: left;
+  padding-left: 7px;
+}
+
+#section .center .ipt #ipt2 {
+  float: right;
+  border: 0 none;
+  width: 68px;
+  height: 40px;
+  background: #dd0207;
+}
+
+#section .center .hot-section a {
+  padding-right: 10px;
+  margin-top: 15px;
+}
+
+#section .center .hot-section a:hover {
+  color: #e3393c;
+}
+
+#section .right {
+  float: right;
+  margin-top: 20px;
+}
+
+#nav {
+  height: 38px;
+  background: #fff;
+  border-bottom: 1px solid #dd0207;
+}
+
+#nav .nav-1 {
+  position: relative;
+}
+
+#nav .nav-1 .jiujiu1 {
+  width: 200px;
+  height: 38px;
+  background: #dd0207;
+  float: left;
+}
+
+#nav .nav-1 .jiujiu1 img {
+  padding-left: 15px;
+}
+
+#nav .nav-1 .jiujiu1 span {
+  color: #fff;
+  line-height: 38px;
+}
+
+#nav .jiujiu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 40px;
+  background: #3d4851;
+  opacity: .8;
+  z-index: 10;
+  width: 200px;
+  height: 492px;
+}
+
+#nav .jiujiu li {
+  padding-left: 16px;
+  width: 200px;
+  height: 80px;
+  border-bottom: 1px solid #323b42;
+  box-sizing: border-box;
+}
+
+#nav .jiujiu li p {
+  padding-top: 20px;
+  padding-bottom: 16px;
+  color: #fff;
+  font-weight: 700;
+}
+
+#nav .jiujiu li span {
+  color: #fff;
+}
+
+#nav .jiujiu .no {
+  border: none;
+}
+
+#nav .jiujiu li:hover {
+  background: #262a2d;
+}
+
+#nav a {
+  display: block;
+  width: 120px;
+  line-height: 38px;
+  float: left;
+  text-align: center;
+}
+
+#nav a:hover {
+  color: #e3393c;
+}
+
+#lunbotu {
+  height: 620px;
+}
+
+#section {
+  height: 100%;
+}
+
+#section .margin {
+  overflow: hidden;
+}
+
+#section .margin .section-s .left-s {
+  float: left;
+  width: 250px;
+}
+
+#section .margin .section-s .left-s .sousuo {
+  width: 250px;
+  height: 196px;
+  border: 1px solid #cbcad0;
+}
+
+#section .margin .section-s .right-s {
+  float: right;
+  width: 910px;
+  border: 1px solid #cbcad0;
+}
+
+#section .margin .section-s .right-s .spxinxi {
+  height: 58px;
+  width: 910px;
+  border-bottom: 1px solid #cbcad0;
+}
+
+#section .margin .section-s .right-s .spxinxi a {
+  font: 18px/58px "";
+  padding: 0 25px;
+}
+
+#section .margin .section-s .right-s .xia {
+  height: 58px;
+  width: 910px;
+  border-bottom: 1px solid #cbcad0;
+}
+
+#section .margin .section-s .right-s .xia span {
+  padding: 0 35px;
+  line-height: 27px;
+}
+
+#section .margin .section-s .faqiang img {
+  width: 900px;
+}
+
+#tupian {
+  height: 110px;
+  margin-top: 90px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+#tupian .tupian-1 {
+  padding-top: 32px;
+}
+
+#footer {
+  height: 224px;
+  background: #f3f3f3;
+}
+
+#footer .left-5 {
+  width: 200px;
+  float: left;
+}
+
+#footer .left-5 img {
+  margin-top: 40px;
+  display: block;
+  width: 150px;
+  height: 50px;
+}
+
+#footer .center-5 {
+  width: 740px;
+  float: left;
+  margin-top: 40px;
+}
+
+#footer .center-5 dl {
+  float: left;
+  padding-right: 70px;
+}
+
+#footer .center-5 dl dt {
+  font: 700 16px/38px "";
+}
+
+#footer .center-5 dl dd {
+  line-height: 18px;
+}
+
+#footer .center-5 dl a:hover {
+  color: #dd0207;
+}
+
+#footer .bottom-5 {
+  width: 250px;
+  float: right;
+}
+
+#footer .bottom-5 ul {
+  float: left;
+  padding: 40px 10px 10px 0;
+}
+
+#footer .bottom-5 ul li {
+  text-align: center;
+}
+
+#footer .bottom-5 ul li h3 {
+  line-height: 38px;
+}
+
+#footer .bottom-5 ul li a {
+  line-height: 28px;
+}
+
+#footer-1 {
+  height: 40px;
+  background: #313131;
+}
+
+#footer-1 ul {
+  margin: 0 320px;
+}
+
+#footer-1 ul li {
+  float: left;
+  color: #fff;
+}
+
+#footer-1 ul li a {
+  font: 16px/40px "";
+  color: #fff;
+}
+
+#footer-1 ul li span {
+  padding: 0 10px;
+}
+
+#footer-2 {
+  height: 110px;
+  background: #fff;
+}
+
+#footer-2 p {
+  text-align: center;
+  line-height: 24px;
+}
+
+#footer-2 .img {
+  display: block;
+  float: left;
+  margin-left: 520px;
+}
+
+#footer-2 .img img {
+  padding: 10px 0;
+}

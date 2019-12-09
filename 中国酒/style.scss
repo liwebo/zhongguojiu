@@ -1,0 +1,142 @@
+//不会被编译的注释
+/*可以被编译的注释*/
+//1.注释
+//2.变量
+//$color:yellow;
+//.box{
+//  background: $color;
+//}
+//h2{
+//  background: $color;
+//}
+
+//$color:red yellow;
+//.box{
+//  background: nth($color,1);
+//}
+//h2{
+//  background: nth($color,2);
+//}
+
+//$ls:(1 10px 20px)(2 20px 30px)(3 30px 40px)(4 40px 50px);
+//@each $a,$b,$c in $ls{
+//  .box#{$a}{
+//      width:$b;
+//      height:$c;
+//  }
+//}
+
+//$m:(h1:10px,h2:20px,h3:30px);
+//@each $key,$val in $m{
+//  #{$key}{
+//      font-size:$val;
+//  }
+//}
+
+//3.混合、mixin、代码块
+//没有返回值
+//@mixin transform($deg){
+//  -webkit-transform: $deg;
+//  -moz-transform: $deg;
+//  -ms-transform: $deg;
+//  -o-transform: $deg;
+//  transform: $deg;
+//}
+//.box1{
+//  @include transform(rotate(90deg));
+//}
+//.box2{
+//  @include transform(translate(100px));
+//}
+
+//4.运算
+//$color:yellow;
+//.box{
+//  background: $color - 10;
+//}
+//h2{
+//  background: $color + 10;
+//}
+
+//计算rem
+//.box{
+//  width:6.25rem;
+//  height:89px / 16px * 1rem;
+//  width:1346px / 16px * 1rem;
+//}
+//计算%和em
+//.box{
+//  width:100px / 20px * 1em;
+//  height:89px / 16px * 100%;
+//  width:1346px / 16px * 1rem;
+//}
+
+//5.函数
+//$fs:18px;
+//html{
+//  font-size:$fs;
+//}
+//@function pTr($px){
+//  @return $px / $fs * 1rem;
+//}
+//.box{
+//  width:pTr(109px);
+//  height:pTr(93px);
+//}
+
+//6.嵌套
+//<ul class="list">
+//  <li>link1</li>
+//  <li>link2</li>
+//  <li>link3</li>
+//  <li class="last">link4</li>
+//</ul>
+//.list{
+//  width:100px;
+//  height:300px;
+//  li{
+//      border: solid 1px black;
+//      &:hover{
+//          background: red;
+//      }
+//      &:after{
+//          content: ".";
+//      }
+//  }
+//  li:hover{
+//      background: red;
+//  }
+//  .last{
+//      border:none
+//  }
+//}
+//.box{
+//  border:{
+//      left:{
+//          width:10px;
+//          color:red;
+//          style:solid;
+//      }
+//      right:{
+//          width:20px;
+//          color: yellow;
+//          style:dasash
+//      }
+//  }
+//}
+
+
+//7.继承
+//.box{
+//  width:100px;
+//  height:100px;
+//  color:red;
+//}
+//.box2{
+//  @extend .box;
+//  color:yellow;
+//}
+
+//8.scss文件的合并编译
+//@import "index.scss";
+
