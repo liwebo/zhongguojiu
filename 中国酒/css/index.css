@@ -119,7 +119,6 @@
   left: 0;
   top: 40px;
   background: #3d4851;
-  opacity: .8;
   z-index: 10;
   width: 200px;
   height: 492px;
@@ -144,6 +143,46 @@
   color: #fff;
 }
 
+#nav .jiujiu li .menu {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  height: 490px;
+  width: 800px;
+  display: none;
+  background: #fff;
+}
+
+#nav .jiujiu li .menu ul {
+  padding-left: 40px;
+}
+
+#nav .jiujiu li .menu ul .te3 {
+  float: left;
+}
+
+#nav .jiujiu li .menu ul .te3 b {
+  width: 600px;
+  font: 700 12px/50px "";
+  float: left;
+  border-bottom: 1px solid black;
+  margin-left: 40px;
+}
+
+#nav .jiujiu li .menu ul .te3 .box3 {
+  float: left;
+  width: 600px;
+}
+
+#nav .jiujiu li .menu ul .te3 .box3 a {
+  display: block;
+  margin-left: 0;
+}
+
+#nav .jiujiu li:hover .menu {
+  display: block;
+}
+
 #nav .jiujiu .no {
   border: none;
 }
@@ -166,16 +205,40 @@
 
 #banner {
   height: 492px;
+  /* .imgbox img:nth-child(1){left:0;} */
 }
 
-#banner p {
-  display: block;
+#banner .box3 {
+  height: 492px;
+  margin: 0 auto;
+  position: relative;
 }
 
-#banner p img {
+#banner .box .imgbox {
+  height: 492px;
+}
+
+#banner .imgbox img {
+  height: 492px;
   display: block;
   width: 100%;
-  height: 492px;
+}
+
+#banner .btns input {
+  width: 50px;
+  height: 40px;
+  background: rgba(200, 200, 200, 0.6);
+  border: none;
+  position: absolute;
+  top: 226px;
+}
+
+#banner #left {
+  left: 0;
+}
+
+#banner #right {
+  right: 0;
 }
 
 #mydata {
@@ -463,4 +526,27 @@
 
 #footer-2 .img img {
   padding: 10px 0;
+}
+
+.louceng {
+  width: 40px;
+  height: 164px;
+  position: fixed;
+  left: 20px;
+  bottom: 40px;
+  background: black;
+}
+
+.louceng li {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  border-top: 1px solid #b6b6b6;
+}
+
+.louceng li:hover {
+  background: red;
 }

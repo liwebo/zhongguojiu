@@ -53,12 +53,23 @@
         span{color:#fff;line-height:38px;}
     }
 }
-    .jiujiu{position:absolute;left:0;top:40px;background:#3d4851;opacity:.8;z-index:10;
+    .jiujiu{position:absolute;left:0;top:40px;background:#3d4851;z-index:10;
             width:200px;height:492px;
             li{padding-left:16px;width:200px;height:80px;border-bottom:1px solid #323b42;box-sizing:border-box;
                 p{padding-top:20px;padding-bottom:16px;color:#fff;font-weight:700;}
                 span{color:#fff;}
+                .menu{position:absolute;left:200px;top:0;height:490px;width:800px;display:none;background:#fff;
+                    ul{padding-left:40px;
+                      .te3{float: left;
+                          b{width:600px;font: 700 12px/50px "";float: left;border-bottom:1px solid black;margin-left:40px;}
+                          .box3{float: left;width:600px;
+                            a{display: block;margin-left:0;}
+                        }  
+                      }
+                    }
+                }
             }
+            li:hover .menu{display: block;}
             .no{border:none;}
             li:hover{background:#262a2d;}
         }
@@ -67,11 +78,16 @@
 }
 
 #banner{height:492px;
-        p{display:block;
-            img{display:block;width:100%;height:492px;}
-        }
-    
+.box3{height:492px;margin:0 auto;position: relative;}
+       .box .imgbox{height:492px;}
+       .imgbox img{height:492px;display:block;width:100%;}
+        /* .imgbox img:nth-child(1){left:0;} */
+
+       .btns input{width:50px;height:40px;background:rgba(200, 200, 200, .6);border:none;position:absolute;top:226px;}
+       #left{left:0;}
+       #right{right:0;}
 }
+
 
 #mydata{height:564px;
     .top{height:40px;
@@ -182,4 +198,24 @@
         .img{display: block;float: left;margin-left:520px;
                 img{padding:10px 0;}
         }
+}
+
+
+.louceng{
+    width: 40px;
+    height: 164px;
+    position: fixed;
+    left: 20px;
+    bottom: 40px;
+  background:black;
+  li{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-top: 1px solid #b6b6b6;
+  }
+  li:hover{background:red;}
 }
