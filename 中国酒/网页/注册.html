@@ -16,8 +16,8 @@
             <div class="img">
                 <img src="../images/logo.png" />
                 <img src="../images/ls2.png" />
-                <span>欢迎注册</span>
-                <p>我已经注册现在去<a href="../网页/登录.html">登录</a></p>
+                <i>欢迎注册</i>
+                <span></span>
             </div>
         </div>
     </div>
@@ -35,19 +35,16 @@
                 </div>
                 <div class="ipt">
                     <div class="img"><img src="../images/user.png" /></div>
-                    <input type="text" id="btn2" placeholder="请设置用户名" />
+                    <input type="text" id="user" placeholder="请设置用户名" />
                 </div>
                 <div class="ipt">
                     <div class="img"><img src="../images/lock.png" /></div>
-                    <input type="text" id="btn3" placeholder="请设置新密码" />
-                </div>
-                <div class="ipt">
-                    <div class="img"><img src="../images/lock.png" /></div>
-                    <input type="text" id="btn4" placeholder="请再次输入新密码" />
+                    <input type="text" id="pass" placeholder="请设置新密码" />
                 </div>
 
                 <div class="sub">
-                    <input type="button" value="立即注册" id="but" />
+                    <input type="button" value="立即注册" id="reg" />
+                    <input type="button" value="去登录" id="log" />
                 </div>
             </div>
         </div>
@@ -60,5 +57,71 @@
     </div>
 
 </body>
+<script src="../css/cookie.js"></script>
+<script>
+    class Register {
+        constructor() {
+            this.user = document.getElementById("user");
+            this.pass = document.getElementById("pass");
+            this.reg = document.getElementById("reg");
+            this.log = document.getElementById("log");
+            this.span = document.querySelector("span");
+
+            this.addEvent();
+        }
+        addEvent() {
+            var that = this;
+            this.reg.onclick = function () {
+                that.u = that.user.value;
+                that.p = that.pass.value;
+
+                that.setMsg();
+            }
+            this.log.onclick = function () {
+                location.href = "../网页/登录.html";
+            }
+        }
+        setMsg() {
+            //  数据格式：[{user:"admin",pass:"123",onoff:0},{...},{...}..]
+
+            // 第一个用户
+            this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
+            // 第一个用户
+            if (this.msg.length < 1) {
+                this.msg.push({
+                    user: this.u,
+                    pass: this.p,
+                    onoff: 0
+                })
+                this.success();
+            } else {
+                // 非第一个用户
+                // 重名了
+                var type = this.msg.some((val, idx) => {
+                    return val.user === this.u;
+                });
+                if (type) {
+                    this.span.innerHTML = "用户名重复";
+                } else {
+                    // 没重名直接注册
+                    this.msg.push({
+                        user: this.u,
+                        pass: this.p,
+                        onoff: 0
+                    })
+                    this.success();
+                }
+            }
+            setCookie("userMsg", JSON.stringify(this.msg));
+        }
+        success() {
+            this.span.innerHTML = "注册成功,5秒后<a href='../网页/登录.html'>跳转到登录界面</a>";
+            setTimeout(() => {
+                location.href = "../网页/登录.html";
+            }, 5000);
+        }
+    }
+    new Register();
+</script>
 
 </html>

@@ -112,12 +112,23 @@
     </div>
 
 
-    <div id="lunbotu">
-        <div class="margin">
-            <div class="lunbo-1"></div>
+    <div id="sbox">
+            <img src="../案例/图片/s28.jpg" alt="">
+            <span class="sspan"></span>
         </div>
-    </div>
-
+        <div id="bbox">
+            <img src="../案例/图片/s28.jpg" alt="">
+        </div>
+        <div id="imgbox">
+            <input class="btnL" type="button" value="&lt;&lt;">
+            <input class="btnR" type="button" value="&gt;&gt;">
+            <!-- <span class="btnL">&lt;&lt;</span>
+            <span class="btnR">&gt;&gt;</span> -->
+            <div class="smbox">
+                <ul>
+                </ul>
+            </div>
+        </div>
 
 
     <div id="section">
@@ -158,15 +169,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -274,5 +276,167 @@
         </div>
     </div>
 </body>
-
+<script>
+        class Magnifying{
+            constructor(){
+            this.sbox = document.getElementById('sbox');
+            this.sspan = document.querySelector('.sspan');
+            this.bbox = document.getElementById('bbox');
+            this.bimg = document.querySelector('#bbox img');
+            
+            this.Init();
+            }
+            Init(){
+                var that = this;
+                this.sbox.onmouseover = function(){
+                    that.over();
+                }
+                this.sbox.onmousemove = function(eve){
+                    var e = eve || window.event;
+                    that.move(e);
+                }
+                this.sbox.onmouseout = function(){
+                    that.out();
+                }
+            }
+            over(){
+                this.bbox.style.display = 'block';
+                this.sspan.style.display = 'block';
+                this.sbox.w = this.sbox.offsetWidth;
+                this.sbox.h = this.sbox.offsetHeight;
+    
+                this.bbox.h = this.bbox.offsetHeight;
+                this.bbox.w = this.bbox.offsetWidth;
+    
+                this.bimg.w = this.bimg.offsetWidth;
+                this.bimg.h = this.bimg.offsetHeight;
+                this.sspan.style.width = this.bbox.w / this.bimg.w * this.sbox.w + 'px';
+                this.sspan.style.height = this.bbox.h / this.bimg.h * this.sbox.h + 'px';
+               
+            }
+            move(e){
+                var l = e.clientX - this.sbox.offsetLeft - this.sspan.offsetWidth/2 ;
+                var t = e.clientY - this.sbox.offsetTop - this.sspan.offsetHeight/2 ;
+                // console.log(l,t);
+                
+                if( l < 0){
+                    l = 0;
+                }else if( l > this.sbox.w - this.sspan.offsetWidth){
+                    l = this.sbox.w - this.sspan.offsetWidth
+                }
+                if(t < 0){
+                    t = 0;
+                }else if( t > this.sbox.h - this.sspan.offsetHeight){
+                    t = this.sbox.h - this.sspan.offsetHeight
+                }
+                this.sspan.w = this.sspan.offsetWidth;
+                this.sspan.h = this.sspan.offsetHeight;
+                this.sspan.style.left = l + 'px';
+                this.sspan.style.top = t + 'px'
+                this.bimg.style.top = - t / this.sbox.h * this.bimg.h + 'px';
+                this.bimg.style.left = - l / this.sbox.w * this.bimg.w + 'px';
+            }
+            out(){
+                this.bbox.style.display = 'none';
+                this.sspan.style.display = 'none';
+            }
+        }
+        new Magnifying();
+    </script>
+    <script>
+        class myScroll{
+            constructor(){
+                this.imgbox = document.getElementById('imgbox');
+                this.oul = document.querySelector('#imgbox ul');
+                this.btnL = document.querySelector('.btnL');
+                this.btnR = document.querySelector('.btnR');
+                this.osmbox = document.querySelector('.smbox');
+                this.osmboxw = this.osmbox.offsetWidth;
+                this.spanw = this.btnR.offsetWidth;
+                this.bimg = document.querySelector('#bbox img');
+                this.simg = document.querySelector('#sbox img');
+                // this.obody = document.querySelector('body');
+                console.log(this.obody);
+                
+                // console.log(this.simg.src);
+                
+                this.l = 0;
+                this.data = [{img:'../images/floor_RThree_20170823170646576130.jpg'},{img:'../images/floor_REight_20170823170519683978.jpg'},{img:'../images/floor_ROne_20170726113025864767.jpg'},{img:'../案例/图片/s32.png'},];
+                this.init();
+            }
+            init(){
+                this.newinit();
+                this.myonclick();
+                this.mouseclick();
+               
+            }
+            newinit(){
+                var that = this;
+                var str = '';
+                for(var i = 0 ; i<this.data.length;i++){
+                    str += `<li><img src="${this.data[i].img}"/></li>`
+                }
+                this.oul.innerHTML = str;
+                this.ali = document.querySelectorAll('#imgbox li');
+                this.imgw = this.ali[0].offsetWidth;
+                this.oul.style.width = this.imgw * this.ali.length + 'px';
+                this.imgbox.style.width = this.imgw *4 +  this.spanw*2 + 'px'
+                // console.log(this.imgw);
+                // console.log(this.oul.offsetWidth);
+            }
+            myonclick(){
+                var that = this;
+                this.btnL.onclick = function(){
+                    that.activeL();
+                }
+                this.btnR.onclick = function(){
+                    that.activeR();
+                }   
+            }
+            activeL(){
+                
+                if(Math.abs(this.l) <= this.imgw *4){
+                    this.l=0;
+                } else{
+                    this.l += this.imgw *4 ;
+                }
+                this.oul.style.left = this.l + 'px';
+                console.log(this.l);
+                
+            }
+            activeR(){
+                if(this.oul.offsetWidth - Math.abs(this.l) <= this.imgw *8 ){
+                    this.l = -(this.oul.offsetWidth - this.imgw *4);
+                }else{
+                    this.l += -this.imgw *4 ;
+                }
+                this.oul.style.left = this.l + 'px';
+            }
+            mouseclick(){
+                var that = this;
+                for(var i = 0 ;i < this.ali.length ; i++){
+                    this.ali[i].index = i;
+                    this.ali[i].onclick = function(){
+                        that.changeImg(this);
+                        that.imgActive(this);
+                    }
+                }
+            }
+            imgActive(asp){
+                this.index = asp.index;
+                for(var i = 0;i<this.ali.length;i++){
+                    this.ali[i].className = '';
+                }
+                this.ali[asp.index].className = 'active';
+            }
+            changeImg(asp){
+                this.index = asp.index;
+                // this.simg.src = ""+this.data[this.index].img+"";
+                this.simg.src = `${this.data[this.index].img}`;
+                this.bimg.src = `${this.data[this.index].img}`;
+                this.obody.style.background =`url('${this.data[this.index].img}')` 
+            }
+        }
+        new myScroll();
+</script>
 </html>

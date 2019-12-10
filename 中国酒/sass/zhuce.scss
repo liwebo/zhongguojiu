@@ -5,11 +5,11 @@ html,body{height:100%;}
 
 #header{background:#f2f2f2;height:9.2%;
     img{height:40px;display: block;float: left;margin-top:20px;padding-right:10px;}
-    span{font:16px/80px "";color:#1f1f1f;}
-    p{float:right;font:24px/36px "";}
+    i{float:left;font:16px/80px "";color:#1f1f1f;}
+    span{float:left;font:16px/80px "";margin-left:25px;display: block;}
 }
 
-#nav{background:#e33938;height:74.4%;
+#nav{background:#e33938;height:76.4%;
         
         .right{width:1000px;height:500px;background:#fff;float:left;margin-top:35px;
             .dlu{height:55px;border-bottom:1px solid #f2f2f2;
@@ -21,16 +21,16 @@ html,body{height:100%;}
                     img{margin:5px auto;display: block;}
                 }
                 #btn1{height:40px;border:none;float: left;width:238px;text-indent:1em;}
-                #btn2{height:40px;border:none;float: left;width:238px;text-indent:1em;}
-                #btn3{height:40px;border:none;float: left;width:238px;text-indent:1em;}
-                #btn4{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #user{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #pass{height:40px;border:none;float: left;width:238px;text-indent:1em;}
             }
             .sub{width:280px;height:40px;border-radius:4px;overflow: hidden;margin:26px 0 0 30px;margin-left:100px;
-                #but{width:280px;height:40px;border:none;background:#f23331;color:#fff;font-size:16px;}
+                #reg{float:left;width:137px;height:40px;border:none;background:#f23331;color:#fff;font-size:16px;margin-right:6px;border-radius:4px;}
+                #log{float:right;width:137px;height:40px;border:none;background:#f23331;color:#fff;font-size:16px;border-radius:4px;}
             }       
         }
 }
 
-#footer{background:#f2f2f2;height: 15.4%;
+#footer{background:#f2f2f2;height: 13.4%;
     span{text-align: center;padding-top:30px;display:block;}
 }

@@ -20,7 +20,7 @@ html, body {
   padding-right: 10px;
 }
 
-#header span {
+#header p {
   font: 16px/80px "";
   color: #1f1f1f;
 }
@@ -60,6 +60,13 @@ html, body {
   text-indent: 2em;
 }
 
+#nav .right .san {
+  width: 280px;
+  height: 10px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
 #nav .right .ipt {
   width: 280px;
   height: 40px;
@@ -82,7 +89,15 @@ html, body {
   display: block;
 }
 
-#nav .right .ipt #btn {
+#nav .right .ipt #user {
+  height: 40px;
+  border: none;
+  float: left;
+  width: 238px;
+  text-indent: 1em;
+}
+
+#nav .right .ipt #pass {
   height: 40px;
   border: none;
   float: left;
@@ -98,7 +113,7 @@ html, body {
   margin: 26px 0 0 30px;
 }
 
-#nav .right .sub #but {
+#nav .right .sub #log {
   width: 280px;
   height: 40px;
   border: none;
@@ -146,7 +161,7 @@ html, body {
   height: 23.4%;
 }
 
-#footer span {
+#footer p {
   text-align: center;
   padding-top: 30px;
   display: block;

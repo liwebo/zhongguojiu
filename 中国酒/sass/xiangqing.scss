@@ -22,6 +22,26 @@
 }
 
 
+*{margin: 0;padding: 0;}
+        li{list-style: none;}
+        /* html{height: 100%;width: 100%;} */
+        // body{height: 100%;width: 100%;background-size:100% 100%;}
+    #sbox{width: 400px;height: 300px;margin: 60px;position: relative;}
+    #sbox img{width: 400px;height: 300px;display:block;}
+    #sbox span{position: absolute;background:rgba(200,200,200,.4);display: none;z-index: 10;}
+    #bbox{width: 500px;height: 400px;position: absolute;top: 200px;left:550px;border: 2px solid #000;overflow: hidden;display: none;}
+    #bbox img{width: 1600px;height: 1200px;position: absolute;}
+    #imgbox{/* width: 400px; */height: 80px;position: relative;margin-left: 45px;}
+    #imgbox .smbox{overflow: hidden;height: 80px;margin: 0 40px;position: relative;}
+    #imgbox ul{height: 80px;position: absolute;left: 0px;}
+    #imgbox li{float: left;height: 80px;border-radius: 4px;}
+    #imgbox li img{width: 80px;height: 60px;margin-top: 10px;padding: 0 3px;}
+    #imgbox input{position: absolute;top: 20px;height: 40px;text-align: center;font: 20px/40px "";width: 40px;background: rgba(200,200,200,.8);color:#fff;cursor: pointer;border-radius: 4px;z-index: 999;border: 0;outline: none;}
+    #imgbox input:nth-child(1){left: 0;}
+    #imgbox input:nth-child(2){right: 0;}
+    #imgbox li.active{background: rgba(100,100,100,.6);}
+
+
 #section{
     background:#fff;
     height:120px;

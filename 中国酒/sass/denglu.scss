@@ -5,7 +5,7 @@ html,body{height:100%;}
 
 #header{background:#f2f2f2;height:9.2%;
     img{height:40px;display: block;float: left;margin-top:20px;padding-right:10px;}
-    span{font:16px/80px "";color:#1f1f1f;}
+    p{font:16px/80px "";color:#1f1f1f;}
 }
 
 #nav{background:#e33938;height:66.4%;
@@ -16,14 +16,17 @@ html,body{height:100%;}
             .dlu{height:55px;border-bottom:1px solid #f2f2f2;
                 p{font: 700 18px/55px "";color:#e54b54;text-indent:2em;}
             }
+            .san{width:280px;height:10px;margin-top:10px;margin-left:40px;
+            }
             .ipt{width:280px;height:40px;border:1px solid #f2f2f2;margin:26px 0 0 30px;border-radius:5px;overflow: hidden;
                 .img{background:#f2f2f2;height:40px;width:40px;float: left;border-right:2px solid #f2f2f2;
                     img{margin:5px auto;display: block;}
                 }
-                #btn{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #user{height:40px;border:none;float: left;width:238px;text-indent:1em;}
+                #pass{height:40px;border:none;float: left;width:238px;text-indent:1em;}
             }
             .sub{width:280px;height:40px;border-radius:4px;overflow: hidden;margin:26px 0 0 30px;
-                #but{width:280px;height:40px;border:none;background:#f23331;color:#fff;font-size:16px;}
+                #log{width:280px;height:40px;border:none;background:#f23331;color:#fff;font-size:16px;}
             }
             .xinxi{margin-top:10px;
                 .te{padding-left:30px;}
@@ -42,5 +45,5 @@ html,body{height:100%;}
 }
 
 #footer{background:#f2f2f2;height: 23.4%;
-    span{text-align: center;padding-top:30px;display:block;}
+    p{text-align: center;padding-top:30px;display:block;}
 }

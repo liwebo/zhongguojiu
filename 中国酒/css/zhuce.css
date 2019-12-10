@@ -20,19 +20,22 @@ html, body {
   padding-right: 10px;
 }
 
-#header span {
+#header i {
+  float: left;
   font: 16px/80px "";
   color: #1f1f1f;
 }
 
-#header p {
-  float: right;
-  font: 24px/36px "";
+#header span {
+  float: left;
+  font: 16px/80px "";
+  margin-left: 25px;
+  display: block;
 }
 
 #nav {
   background: #e33938;
-  height: 74.4%;
+  height: 76.4%;
 }
 
 #nav .right {
@@ -85,7 +88,7 @@ html, body {
   text-indent: 1em;
 }
 
-#nav .right .ipt #btn2 {
+#nav .right .ipt #user {
   height: 40px;
   border: none;
   float: left;
@@ -93,15 +96,7 @@ html, body {
   text-indent: 1em;
 }
 
-#nav .right .ipt #btn3 {
-  height: 40px;
-  border: none;
-  float: left;
-  width: 238px;
-  text-indent: 1em;
-}
-
-#nav .right .ipt #btn4 {
+#nav .right .ipt #pass {
   height: 40px;
   border: none;
   float: left;
@@ -118,18 +113,32 @@ html, body {
   margin-left: 100px;
 }
 
-#nav .right .sub #but {
-  width: 280px;
+#nav .right .sub #reg {
+  float: left;
+  width: 137px;
   height: 40px;
   border: none;
   background: #f23331;
   color: #fff;
   font-size: 16px;
+  margin-right: 6px;
+  border-radius: 4px;
+}
+
+#nav .right .sub #log {
+  float: right;
+  width: 137px;
+  height: 40px;
+  border: none;
+  background: #f23331;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
 }
 
 #footer {
   background: #f2f2f2;
-  height: 15.4%;
+  height: 13.4%;
 }
 
 #footer span {
