@@ -15,7 +15,7 @@
         <div class="margin">
             <div class="tou">
                 <ul class="left">
-                    <li>您好，欢迎来到中酒网</li>
+                    <li>您好，欢迎来到<a href="#">中酒网</a></li>
                     <li><a href="../网页/首页.html">去首页</a></li>
                     <li><a href="../网页/登录.html">登录</a></li>
                     <li><a href="../网页/注册.html">注册</a></li>
@@ -769,7 +769,7 @@
     class Index {
         constructor() {
             this.login = document.querySelector(".left");
-            // this.welcome = document.querySelector(".welcome");
+            this.welcome = document.querySelector(".welcome");
             // this.user = this.welcome.querySelector("span");
             // this.exit = this.welcome.querySelector("em");
             this.getMsg();
@@ -792,9 +792,9 @@
                 return val.onoff === 1;
             })
             if (type) {
-                this.login.style.display = "block";
-                // this.welcome.style.display = "block";
-                // this.user.innerHTML = this.msg[this.i].user;
+                this.login.style.display = "none";
+                this.welcome.style.display = "block";
+                this.user.innerHTML = this.msg[this.i].user;
             }
         }
     }

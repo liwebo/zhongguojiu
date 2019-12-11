@@ -31,10 +31,10 @@
         </div>
     </div>
 
-
-    <table border="1" cellspacing="0" width="1000" align="center">
+    <p style="margin-left:230px;font: 16px/36px '';margin-bottom:15px;"><a href="../网页/商品列表.html">去购物</a></p>
+    <table border="1" cellspacing="0" width="1000" align="center" border="none">
             <thead>
-                <tr>
+                <tr style="background:#e6e6e6;height:40px;border:1px solid #e6e6e6;;">
                     <th style="width: 60px; text-align: center;"><input type="checkbox" name="" id="checkall">全选</th>
                     <th>图片</th>
                     <th style="width: 300px;">名字</th>
@@ -48,13 +48,13 @@
                 <tr>
                     <td colspan="5">购物车为空...<a href="../网页/商品列表.html">去购物</a></td>
                 </tr>
-                <tr>
+                <tr style="background:#f7f8c2;">
                     <td><img src="" /></td>
                     <td></td>
                     <td></td>
                     <td>
                         <ul class="btn-numbox">
-                            <li><span class="number">数量</span></li>
+                            <li><span class="number" style="margin-right:45px">数量</span></li>
                             <li>
                                 <ul class="count">
                                     <li><span id="num-jian" class="num-jian">-</span></li>
@@ -68,11 +68,11 @@
                 </tr>
             </tbody>
             <tfoot>
-                <tr style="height: 40px">
+                <tr style="height: 40px;background:#e6e6e6;">
                     <td colspan="4"></td>
                     <td>总数量：<input type="text" value="" class="numAll"></td>
                     <td>总计：<input type="text" value="" class="priceAll"></td>
-                    <td style="text-align: center;color: red;" class="delAll">全部删除</td>
+                    <td style="text-align: center;color: #fff;background:red;height:40px;width:80px;" class="delAll">全部删除</td>
     
                 </tr>
             </tfoot>
@@ -175,6 +175,7 @@
                 }
                 if (target.className == 'num-jian') {
                     that.num = target.parentNode.parentNode.querySelector('input').value;
+                    console.log(target.parentNode.parentNode.querySelector('input'));
                     that.val = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute('index');
                     if (that.num == 1) {
                         that.num = 1;

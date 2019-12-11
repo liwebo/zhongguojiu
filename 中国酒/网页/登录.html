@@ -103,6 +103,7 @@
                 if (this.msg[i].user == this.u && this.msg[i].pass == this.p) {
                     location.href = "../网页/首页.html";
                     // this.span.innerHTML = "登录成功";
+                    alert("登录成功");
                     this.msg[i].onoff = 1;
                     setCookie("userMsg", JSON.stringify(this.msg));
                     type = 1;
