@@ -21,15 +21,261 @@
                 </ul>
                 <ul class="right">
                     <li><a href="#">订购热线:400-798-9999</a></li>
-                    <li><a href="#">卖家中心</a><img src="../images/himall_web_add.png" /></li>
+                    <li><a href="#">卖家中心</a></li>
                     <li><a href="#">APP</a></li>
                     <li><a href="#">微信端</a></li>
-                    <li><a href="#">购物车0件</a><img src="../images/himall_web_add.png" /></li>
+                    <li><a href="#">购物车0件</a></li>
                     <li><a href="#">我的中酒网</a></li>
                 </ul>
             </div>
         </div>
     </div>
-</body>
 
+
+    <table border="1" cellspacing="0" width="1000" align="center">
+            <thead>
+                <tr>
+                    <th style="width: 60px; text-align: center;"><input type="checkbox" name="" id="checkall">全选</th>
+                    <th>图片</th>
+                    <th style="width: 300px;">名字</th>
+                    <th style="width:60px">价格</th>
+                    <th style="width: 230px;">数量</th>
+                    <th>小计</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="5">购物车为空...<a href="../网页/商品列表.html">去购物</a></td>
+                </tr>
+                <tr>
+                    <td><img src="" /></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <ul class="btn-numbox">
+                            <li><span class="number">数量</span></li>
+                            <li>
+                                <ul class="count">
+                                    <li><span id="num-jian" class="num-jian">-</span></li>
+                                    <li><input type="text" class="input-num" id="input-num" value="0" /></li>
+                                    <li><span id="num-jia" class="num-jia">+</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="delete">删除</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr style="height: 40px">
+                    <td colspan="4"></td>
+                    <td>总数量：<input type="text" value="" class="numAll"></td>
+                    <td>总计：<input type="text" value="" class="priceAll"></td>
+                    <td style="text-align: center;color: red;" class="delAll">全部删除</td>
+    
+                </tr>
+            </tfoot>
+        </table>
+</body>
+<script src="../css/ajax.js"></script>
+<script src="../css/cookie.js"></script>
+<script type="text/javascript">
+    class Car {
+        constructor() {
+            this.tbody = document.querySelector('tbody');
+            this.url = 'http://localhost/1911/中国酒/css/shangpin.json';
+            this.checkall = document.getElementById('checkall');
+            this.numAll = document.querySelector('.numAll');
+            this.priceAll = document.querySelector('.priceAll');
+            this.delAll = document.querySelector('.delAll');
+            this.sum = 0;
+            this.allnum = 0;
+            this.allprice = 0;
+            this.init();
+            this.addEvent();
+        }
+        init() {
+            var that = this;
+            ajaxGet(this.url, (res) => {
+                this.res = JSON.parse(res);
+                this.getCookie();
+            });
+            this.checkall.onclick = function() {
+                that.checkallclick();
+            }
+            this.delAll.onclick = function() {
+                that.delAllclick();
+            }
+
+        }
+        getCookie() {
+            this.goods = getCookie('goodsCookie') ? JSON.parse(getCookie('goodsCookie')) : [];
+            this.checkClick();
+            this.display();
+
+            // this.getCheck();
+        }
+        display() {
+            var str = '';
+            this.allnum = 0;
+            this.allprice = 0;
+            if (this.goods.length == []) {
+                this.checkall.checked = false;
+                this.numAll.value = '';
+                this.priceAll.value = '';
+            }
+            for (var j = 0; j < this.res.length; j++) {
+                for (var i = 0; i < this.goods.length; i++) {
+                    if (this.res[j].goodsId === this.goods[i].id) {
+                        if (this.goods[i].check == 1) {
+                            this.check = 'checked';
+                            this.allnum += this.goods[i].num;
+                            this.allprice += parseFloat((this.res[j].price * this.goods[i].num).toFixed(2));
+                        } else {
+                            this.check = '';
+                        };
+                        var sub = (this.res[j].price * this.goods[i].num).toFixed(2);
+                        this.numAll.value = this.allnum;
+                        this.priceAll.value = this.allprice.toFixed(2);
+                        str += `<tr index="${this.res[j].goodsId}">
+                                <td><input type="checkbox" name="" class='check' ${this.check} ></td>
+									<td><img src="${this.res[j].img}"/></td>
+									<td>${this.res[j].name}</td>
+									<td>${this.res[j].price}</td>
+									<td><ul class="btn-numbox">
+                                            <li><span class="number">数量</span></li>
+											<li>
+												<ul class="count">
+													<li><span id="num-jian" class="num-jian">-</span></li>
+													<li><input type="text" class="input-num" id="input-num" value="${this.goods[i].num}" /></li>
+													<li><span id="num-jia" class="num-jia">+</span></li>
+												</ul>
+											</li>
+                                        </ul>
+                                    </td>
+                                    <td class="subtotal">${sub}</td>
+									<td class="delete">删除</td>
+								</tr>`;
+                    }
+                }
+            }
+            this.tbody.innerHTML = str;
+        }
+        addEvent() {
+            var that = this;
+            this.tbody.addEventListener('click', function(eve) {
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                if (target.className == 'delete') {
+                    that.val = target.parentNode.getAttribute('index');
+                    // console.log(that.val);
+                    that.delCookie();
+                    that.display();
+                }
+                if (target.className == 'num-jian') {
+                    that.num = target.parentNode.parentNode.querySelector('input').value;
+                    that.val = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute('index');
+                    if (that.num == 1) {
+                        that.num = 1;
+                    } else {
+                        that.numChange(function(i) {
+                            that.goods[i].num--;
+                        });
+                        that.display();
+                    }
+                }
+                if (target.className == 'num-jia') {
+                    that.num = target.parentNode.parentNode.querySelector('input').value;
+                    that.val = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute('index');
+                    that.numChange(function(i) {
+                        that.goods[i].num++;
+                    });
+                    that.display();
+                }
+                if (target.className == 'check') {
+                    that.val = target.parentNode.parentNode.getAttribute('index');
+                    that.checkClick();
+                }
+            });
+            this.tbody.addEventListener('input', function(eve) {
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                that.num = target.value;
+                that.val = target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute('index');
+                that.numChange(function(i) {
+                    that.goods[i].num = that.num;
+                });
+                that.display();
+            })
+        }
+        delCookie() {
+            for (var i = 0; i < this.goods.length; i++) {
+                this.i = i;
+                if (this.val == this.goods[i].id) {
+                    this.goods.splice(this.i, 1);
+                    break;
+                }
+            }
+            setCookie('goodsCookie', JSON.stringify(this.goods));
+            this.display();
+        }
+        numChange(cb) {
+            for (var i = 0; i < this.goods.length; i++) {
+                this.i = i;
+                if (this.val == this.goods[i].id) {
+                    cb(this.i);
+                }
+            }
+            setCookie('goodsCookie', JSON.stringify(this.goods));
+        }
+        checkboxA() {
+            this.sum = 0;
+            for (var i = 0; i < this.goods.length; i++) {
+                this.sum += this.goods[i].check;
+            }
+            if (this.sum == this.goods.length) {
+                this.checkall.checked = true;
+            } else {
+                this.checkall.checked = false;
+            }
+        }
+        checkClick() {
+            this.sum = 0;
+            for (var i = 0; i < this.goods.length; i++) {
+                if (this.goods[i].id == this.val) {
+                    if (this.goods[i].check == 1) {
+                        this.goods[i].check = 0;
+                    } else {
+                        this.goods[i].check = 1;
+                    }
+                }
+                this.sum += this.goods[i].check;
+            }
+            this.checkboxA();
+            setCookie('goodsCookie', JSON.stringify(this.goods));
+            this.display();
+        }
+        checkallclick() {
+            this.goods = getCookie('goodsCookie') ? JSON.parse(getCookie('goodsCookie')) : [];
+            for (var i = 0; i < this.goods.length; i++) {
+                if (this.checkall.checked) {
+                    this.goods[i].check = 1;
+                } else {
+                    this.goods[i].check = 0;
+                }
+            }
+            setCookie('goodsCookie', JSON.stringify(this.goods));
+            this.display();
+        }
+        delAllclick() {
+            removeCookie('goodsCookie');
+            this.checkall.checked = false;
+            this.goods = '';
+            this.display();
+
+        }
+    }
+    new Car;
+</script>
 </html>

@@ -84,7 +84,7 @@ a:hover{color:#e3393c;}
 
 
 
-#details{height:500px;
+#details{height:500px;margin-bottom:30px;
     .margin{overflow: hidden;
         .shopping{margin: 20px 0;
             .lefts{width:190px;height:500px;float:left;border:1px solid #cbcad0;}
@@ -110,74 +110,51 @@ a:hover{color:#e3393c;}
     }
 }
 
+h2{margin-left:360px;}
+#cont {
+    width:1190px;
+    overflow: hidden;
+    margin: 0 auto;
 
-
-#shuju{height:1000px;margin-top:60px;
-    .margin{overflow: hidden;
-        .shuju-2{width:950px;float:right;
-            ul{float:right;
-                li{float: left;width:225px;height:320px;border:dashed 1px #dddddd;margin:0 5px;margin-bottom:10px;
-                    img{display: block;height:220px;}
-                    P{text-indent:20px;font:700 16px/20px "";color:red;margin:5px 0;}
-                    span{display: block;text-indent:20px;font:14px/20px "";color:black;margin:5px 0;}
-                    b{ width: 100px;
-                        height: 30px;
-                        // float: left;
-                        display: block;
-                        margin-left:20px;
-                        // margin: 10px auto;
-                        background: red;
-                        color: #fff;
-                        text-align: center;
-                        line-height: 30px;
-                        border-radius: 6px;
-                        font-style: normal;
-                        cursor: pointer;}
-                }
-                li:hover{border:1px solid red;}
-            }
-        }
-        .pagWarp {
-            height: 40px;
-            box-shadow: 0 2px 5px #b6b6b6;
-            position: absolute;
-            border-radius: 2px;
-            right: 42%;
-            top: 430px;
-        }
-    
-        #btnL,
-        #btnR {
-            line-height: 40px;
-            cursor: pointer;
-        }
-    
-        #btnL {
-            float: left;
-        }
-    
-        #btnR {
-            float: right;
-        }
-    
-        .pagWarp ul {
-            height: 40px;
-            margin: 0 auto;
-            float: left;
-            text-align: center;
-            padding-left: 40px;
-            padding-right: 40px;
-        }
-    
-        .pagWarp ul li {
-            float: left;
-            text-align: center;
-            line-height: 40px;
-            padding: 0 4px;
-        }    
-    }
 }
 
+.box {
+    width: 232px;
+    border: solid 1px #cbcad0;
+    box-sizing: border-box;
+    text-align: center;
+    float: right;
+    margin:5px;
+}
+.box:hover{border:1px solid red;}
+
+.box p {
+    line-height: 20px;
+    height: 40px;
+    overflow: hidden;
+    font: 14px/20px "";
+    color:black;
+}
+.box span{font: 700 14px/20px "";color:red;}
+
+.box img {
+    width: 80%;
+    height: 200px;
+}
+
+.box em {
+    width: 100px;
+    height: 40px;
+    display: block;
+    margin: 10px auto;
+    background:red;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 6px;
+    font-style: normal;
+    cursor: pointer;
+}
 
 
 
