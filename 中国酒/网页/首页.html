@@ -356,57 +356,58 @@
                 </div>
             </div>
 
-            <ul class="shopping">
-                <li>
+            <ul id="cont" class="shopping">
+                <p>商品卖光了</p>
+                <!-- <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
+                    <span>￥2499.00</span>
                 </li>
                 <li>
                     <img src="../images/1_220.png" />
                     <p>42度天佑德青稞酒小黑125ml×4</p>
-                    <p>￥2499.00</p>
-                </li>
+                    <span>￥2499.00</span>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -729,6 +730,7 @@
 <script src="../css/jquery.js"></script>
 <script src="../css/jquery.banner2.js"></script>
 <script src="../css/cookie.js"></script>
+<script src="../css/ajax.js"></script>
 <script type="text/javascript">
 
     // 楼层开始
@@ -738,7 +740,14 @@
         $("html").animate({
             scrollTop: t
         })
-    })
+    });
+    onscroll = ()=>{
+        if($("html").scrollTop()<350){
+            $(".louceng").fadeOut();
+        }else{
+            $(".louceng").fadeIn();
+        }
+    }
     // 楼层结束
 
 
@@ -761,18 +770,18 @@
         constructor() {
             this.login = document.querySelector(".left");
             this.welcome = document.querySelector(".welcome");
-            this.user = this.welcome.querySelector("span");
-            this.exit = this.welcome.querySelector("em");
+            // this.user = this.welcome.querySelector("span");
+            // this.exit = this.welcome.querySelector("em");
             this.getMsg();
             this.addEvent();
         }
         addEvent() {
             var that = this;
-            this.exit.onclick = function () {
-                that.msg[that.i].onoff = "0";
-                setCookie("userMsg", JSON.stringify(that.msg));
-                location.reload();
-            }
+            // this.exit.onclick = function () {
+            //     that.msg[that.i].onoff = "0";
+            //     setCookie("userMsg", JSON.stringify(that.msg));
+            //     location.reload();
+            // }
         }
         getMsg() {
             this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
@@ -793,6 +802,42 @@
 
 // 登录注册结束
 
+// 数据渲染
+class List {
+        constructor() {
+            this.url = "http://localhost/1911/中国酒/css/goods.json";
+            this.cont = document.getElementById("cont");
+
+            this.init();
+            // this.addEvent();
+
+        }
+        init(){
+            this.ajaxGet();
+        }
+        ajaxGet() {
+            var that = this;
+            ajaxGet(this.url, function (res) {
+                that.res = JSON.parse(res);
+                // console.log(that.res);
+                that.display();
+            })
+        }
+        display() {
+            // console.log(this.res);
+            var str = "";
+            for (var i = 0; i < this.res.length; i++) {
+                str += `<li index="${this.res[i].goodsId}">
+                    <img src="${this.res[i].img}" />
+                    <p>${this.res[i].name}</p>
+                    <span>${this.res[i].price}</span>
+                </li>`;
+            }
+            this.cont.innerHTML = str;
+        }
+    }
+    new List();
+// 数据渲染结束
 </script>
 
 </html>

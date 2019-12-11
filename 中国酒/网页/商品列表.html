@@ -261,26 +261,28 @@
 
 
 
-<div id="shuju">
-    <div class="margin">
-        <div class="shuju-2">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+    <div id="shuju">
+        <div class="margin">
+            <div class="shuju-2" class="list">
+                <ul id="cont" >
+                    <p>商品卖光了。。。。</p>
+                    <!-- <li>
+                        <img />
+                        <p>156</p>
+                        <span>大VID上哪搞ID是你</span>
+                        <b></b>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="pagWarp" id="pagWarp">
+                <li id="btnL">上一页</li>
+                <ul id="page">
+
+                </ul>
+                <li id="btnR">下一页</li>
+            </div>
         </div>
     </div>
-</div>
 
 
 
@@ -385,6 +387,199 @@
             </div>
         </div>
     </div>
-</body> 
+</body>
+<script src="../css/ajax.js"></script>
+<script src="../css/cookie.js"></script>
+<script type="text/javascript">
+
+// 渲染页面
+    class List {
+        constructor() {
+            this.url = "http://localhost/1911/中国酒/css/goods.json";
+            this.cont = document.getElementById("cont");
+
+            this.init();
+            this.addEvent();
+
+        }
+        init() {
+            this.ajaxGet();
+        }
+        ajaxGet() {
+            var that = this;
+            ajaxGet(this.url, function (res) {
+                that.res = JSON.parse(res);
+                // console.log(that.res);
+                that.display();
+            })
+        }
+        display() {
+            // console.log(this.res);
+            var str = "";
+            for (var i = 0; i < this.res.length; i++) {
+                str += `<li index="${this.res[i].goodsId}">
+                        <img src="${this.res[i].img}" />
+                        <p>${this.res[i].price}</p>
+                        <span>${this.res[i].name}</span>
+                        <b class="addCar">加入购物车</b>
+                    </li>`;
+            }
+            this.cont.innerHTML = str;
+        }
+        addEvent() {
+            var that = this;
+            this.cont.addEventListener("click", function (eve) {
+                var e = eve || window.event;
+                var target = e.target || e.srcElement;
+                if (target.className == "addCar") {
+                    that.id = target.parentNode.getAttribute("index");
+                    // console.log(that.id);
+                    that.setCookie();
+                }
+            })
+        }
+        setCookie() {
+            // 存cookie
+            // 存json;在购物车中可以保存数量，只使用一条cookie
+            this.goods = getCookie("goodsCookie") ? JSON.parse(getCookie("goodsCookie")) : [];
+
+            // 第一次加入购物车
+            if (this.goods.length < 1) {
+                //直接加入
+                this.goods.push({
+                    id: this.id,
+                    num: 1
+                })
+            } else {
+                // 不是第一次
+                // var onoff = true;
+                // //先判断这次点击的是新商品还是老商品
+                // for (var i = 0; i < this.goods.length; i++) {
+                //     // 老商品，增加数量
+                //     if (this.goods[i].id === this.id) {
+                //         this.goods[i].num++;
+                //         onoff = false;
+                //     }
+                // }
+
+                var i = 0;
+                var onoff = this.goods.some((val, idx) => {
+                    i = idx;
+                    return val.id === this.id;
+                })
+
+                //   新商品 ，增加
+                if (!onoff) {
+                    this.goods.push({
+                        id: this.id,
+                        num: 1
+                    })
+                } else {
+                    this.goods[i].num++;
+                }
+            }
+            setCookie("goodsCookie", JSON.stringify(this.goods));
+        }
+    }
+    new List();
+// 渲染页面结束
+
+// 分页效果
+class Page {
+        constructor(options) {
+            this.img = options.img;
+            this.left = options.left;
+            this.right = options.right;
+            this.cont = options.cont;
+            this.page = options.page;
+            this.index = options.index || 0;
+            this.num = options.num || 5;
+
+            this.load();
+            this.addEvent();
+        }
+        load() {
+            var that = this;
+            ajaxGet(this.url, function (res) {
+                that.res = (JSON.parse(res))
+                that.display();
+                that.createPage();//创建页码
+            })
+        }
+        display() {
+            var str = "";
+
+            //  index0*num3   (index0+1)*num
+
+
+
+            //    console.log(this.res)
+            for (var i = this.index * this.num; i < (this.index + 1) * this.num; i++) {
+                if (i<this.res.length) {
+                    str += `<li index="${this.res[i].goodsId}">
+                        <img src="${this.res[i].img}" />
+                        <p>${this.res[i].price}</p>
+                        <span>${this.res[i].name}</span>
+                        <b class="addCar">加入购物车</b>
+                    </li>`;
+                }
+            }
+            this.list.innerHTML = str;
+        }
+        createPage() {
+            this.maxNum = Math.ceil(this.res.length / this.num)
+            var str = "";
+            for (var i = 0; i < this.maxNum; i++) {
+                str += `<li>${i + 1}</li>`;
+            }
+            this.page.innerHTML = str;
+
+            this.setActive();
+        }
+        setActive() {
+            for (var i = 0; i < this.page.children.length; i++) {
+                this.page.children[i].className = "";
+            }
+            this.page.children[this.index].className = "active";
+        }
+        addEvent() {
+            var that = this;
+            this.right.onclick = function () {
+                that.changeIndexRight();
+            }
+            this.left.onclick = function () {
+                that.changeIndexLeft();
+            }
+        }
+        changeIndexRight() {
+            if (this.index == this.maxNum - 1) {
+                this.index = 0;
+            } else {
+                this.index++
+            }
+            this.display();
+            this.setActive();
+        }
+        changeIndexLeft() {
+            if (this.index == 0) {
+                this.index = this.maxNum -1
+            } else {
+                this.index--
+            }
+            this.display();
+            this.setActive();
+        }
+    }
+    new Page({
+        img: "http://localhost/1911/中国酒css/shangpin.json",
+        left: document.getElementById("btnL"),
+        right: document.getElementById("btnR"),
+        cont: document.getElementById("list"),
+        page: document.getElementById("page"),
+        index: 0,
+        num: 5
+    });
+    // 分页效果结束
+</script>
 
 </html>

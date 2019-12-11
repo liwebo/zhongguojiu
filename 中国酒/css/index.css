@@ -242,7 +242,7 @@
 }
 
 #mydata {
-  height: 564px;
+  height: 594px;
 }
 
 #mydata .top {
@@ -278,8 +278,13 @@
   float: right;
 }
 
+#mydata .shopping {
+  overflow: hidden;
+}
+
 #mydata .shopping li {
   width: 228px;
+  height: 265px;
   float: left;
   margin: 0 5px;
 }
@@ -287,6 +292,17 @@
 #mydata .shopping li p {
   text-indent: 20px;
   padding: 5px 0;
+}
+
+#mydata .shopping li img {
+  width: 80%;
+  height: 200px;
+}
+
+#mydata .shopping li span {
+  text-indent: 20px;
+  padding: 5px 0;
+  display: block;
 }
 
 #box {
