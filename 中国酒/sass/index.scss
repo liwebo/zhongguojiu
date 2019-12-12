@@ -5,17 +5,23 @@
 #header{background:#f5f4f4;
         height:30px;
         border-bottom:solid 1px #e6e6e6;
+        .margin{
+            // display: flex;overflow: hidden;
     .tou{
         line-height:30px;
-         .left{
+        .left{
             li{float: left; 
                 padding: 0 5px;
             }
+        }
+        .welcome{float:left;cursor: pointer;
+            b{float: left;}
         }
          .right{
             li{float: right; 
                 padding: 0 5px; 
              }
+            }
         }
     }
 

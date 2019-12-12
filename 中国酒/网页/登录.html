@@ -36,10 +36,14 @@
                 <div class="ipt">
                     <div class="img"><img src="../images/user.png" /></div>
                     <input type="text" id="user" placeholder="请输入用户名" />
+                    <!-- <i><img src="../images/100.png"/></i>
+                    <b><img src="../images/101.png"/></b> -->
                 </div>
                 <div class="ipt">
                     <div class="img"><img src="../images/lock.png" /></div>
                     <input type="text" id="pass" placeholder="请输入密码" />
+                    <!-- <i><img src="../images/100.png"/></i>
+                    <b><img src="../images/101.png"/></b> -->
                 </div>
 
                 <div class="sub">
@@ -73,6 +77,32 @@
 <script src="../css/cookie.js"></script>
 <script>
     // 登录验证
+
+    // var us = document.querySelector("#user")
+    // var pas = document.querySelector("#pass")
+    // var i = document.getElementsByTagName("i")
+    // var b = document.getElementsByTagName("b")
+    // console.log(i[0])
+    // us.onblur = function () {
+    //     var user = /^[\u2E80-\u9FFF\w]{4,20}$/;
+    //     if (user.test(this.value)) {
+    //         b[0].style.display = "none"
+    //         i[0].style.display = "block"
+    //     } else {
+    //         i[0].style.display = "none"
+    //         b[0].style.display = "block"
+    //     }
+    // }
+    // pas.onblur = function () {
+    //     var paasw = /^[a-z0-9_-]{6,18}$/;
+    //     if (paasw.test(this.value)) {
+    //         b[1].style.display = "none"
+    //         i[1].style.display = "block"
+    //     } else {
+    //         i[1].style.display = "none"
+    //         b[1].style.display = "block"
+    //     }
+    // }
     class Login {
         constructor() {
             this.user = document.getElementById("user");

@@ -18,7 +18,7 @@ html,body{height:100%;}
             }
             .san{width:280px;height:10px;margin-top:10px;margin-left:40px;
             }
-            .ipt{width:280px;height:40px;border:1px solid #f2f2f2;margin:26px 0 0 30px;border-radius:5px;overflow: hidden;
+            .ipt{position: relative;;width:280px;height:40px;border:1px solid #f2f2f2;margin:26px 0 0 30px;border-radius:5px;overflow: hidden;
                 .img{background:#f2f2f2;height:40px;width:40px;float: left;border-right:2px solid #f2f2f2;
                     img{margin:5px auto;display: block;}
                 }

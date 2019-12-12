@@ -10,16 +10,25 @@
   border-bottom: solid 1px #e6e6e6;
 }
 
-#header .tou {
+#header .margin .tou {
   line-height: 30px;
 }
 
-#header .tou .left li {
+#header .margin .tou .left li {
   float: left;
   padding: 0 5px;
 }
 
-#header .tou .right li {
+#header .margin .tou .welcome {
+  float: left;
+  cursor: pointer;
+}
+
+#header .margin .tou .welcome b {
+  float: left;
+}
+
+#header .margin .tou .right li {
   float: right;
   padding: 0 5px;
 }

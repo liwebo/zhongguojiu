@@ -20,6 +20,9 @@
                     <li><a href="../网页/登录.html">登录</a></li>
                     <li><a href="../网页/注册.html">注册</a></li>
                 </ul>
+                <ul class="welcome">
+                    <b>欢迎<span>xxx</span>进入本网站<em>退出登录</em></b>
+                </ul>
                 <ul class="right">
                     <li><a href="#">订购热线:400-798-9999</a></li>
                     <li><a href="#">卖家中心</a><img src="../images/himall_web_add.png" /></li>
@@ -769,19 +772,19 @@
     class Index {
         constructor() {
             this.login = document.querySelector(".left");
-            // this.welcome = document.querySelector(".welcome");
-            // this.user = this.welcome.querySelector("span");
-            // this.exit = this.welcome.querySelector("em");
+            this.welcome = document.querySelector(".welcome");
+            this.user = this.welcome.querySelector("span");
+            this.exit = this.welcome.querySelector("em");
             this.getMsg();
             this.addEvent();
         }
         addEvent() {
             var that = this;
-            // this.exit.onclick = function () {
-            //     that.msg[that.i].onoff = "0";
-            //     setCookie("userMsg", JSON.stringify(that.msg));
-            //     location.reload();
-            // }
+            this.exit.onclick = function () {
+                that.msg[that.i].onoff = "0";
+                setCookie("userMsg", JSON.stringify(that.msg));
+                location.reload();
+            }
         }
         getMsg() {
             this.msg = getCookie("userMsg") ? JSON.parse(getCookie("userMsg")) : [];
@@ -792,9 +795,9 @@
                 return val.onoff === 1;
             })
             if (type) {
-                this.login.style.display = "block";
-                // this.welcome.style.display = "block";
-                // this.user.innerHTML = this.msg[this.i].user;
+                this.login.style.display = "none";
+                this.welcome.style.display = "block";
+                this.user.innerHTML = this.msg[this.i].user;
             }
         }
     }
